@@ -1,0 +1,599 @@
+/* ============================================================
+   UNIDAD EDUCATIVA FISCAL PROF. EDUARDO FLORES TORRES
+   Sistema de diseño
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Public+Sans:wght@400;500;600;700;800&display=swap');
+
+:root{
+  /* Paleta — tomada del sello institucional */
+  --azul-profundo:#123268;
+  --azul-medio:#1F4E96;
+  --azul-claro:#EAF0FB;
+  --amarillo:#F2BF1F;
+  --rojo:#C3312B;
+  --blanco:#FFFFFF;
+  --crema:#F7F7F4;
+  --tinta:#101826;
+  --tinta-suave:#4A5568;
+  --borde:#E1E5EE;
+
+  --fuente-titulo:'Fraunces', Georgia, serif;
+  --fuente-texto:'Public Sans', -apple-system, Segoe UI, sans-serif;
+
+  --radio:14px;
+  --sombra: 0 8px 24px rgba(16,24,38,0.08);
+  --contenedor: 1120px;
+}
+
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  margin:0;
+  font-family:var(--fuente-texto);
+  color:var(--tinta);
+  background:var(--blanco);
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+img{max-width:100%;display:block;}
+a{color:inherit;text-decoration:none;}
+.contenedor{
+  max-width:var(--contenedor);
+  margin:0 auto;
+  padding:0 24px;
+}
+h1,h2,h3{
+  font-family:var(--fuente-titulo);
+  color:var(--azul-profundo);
+  line-height:1.15;
+  margin:0 0 .5em;
+}
+h1{font-size:clamp(2.1rem,5vw,3.4rem); font-weight:600;}
+h2{font-size:clamp(1.6rem,3.4vw,2.3rem); font-weight:600;}
+h3{font-size:1.25rem; font-weight:600;}
+p{margin:0 0 1em; color:var(--tinta-suave);}
+.eyebrow{
+  font-family:var(--fuente-texto);
+  text-transform:uppercase;
+  letter-spacing:.14em;
+  font-size:.75rem;
+  font-weight:700;
+  color:var(--rojo);
+  display:inline-flex;
+  align-items:center;
+  gap:.5em;
+}
+.eyebrow::before{
+  content:"";
+  width:22px; height:2px;
+  background:var(--amarillo);
+  display:inline-block;
+}
+
+:focus-visible{
+  outline:3px solid var(--amarillo);
+  outline-offset:2px;
+}
+
+/* ---------- Barra franja tricolor (motivo del sello) ---------- */
+.franja{
+  height:6px;
+  background:linear-gradient(90deg,
+    var(--amarillo) 0 33%,
+    var(--rojo) 33% 66%,
+    var(--azul-profundo) 66% 100%);
+}
+
+/* ---------- Encabezado / navegación ---------- */
+header.encabezado{
+  position:sticky; top:0; z-index:50;
+  background:var(--blanco);
+  border-bottom:1px solid var(--borde);
+}
+.nav{
+  display:flex; align-items:center; justify-content:space-between;
+  padding:14px 24px;
+  max-width:var(--contenedor);
+  margin:0 auto;
+}
+.marca{
+  display:flex; align-items:center; gap:14px;
+}
+.marca img{
+  height:52px; width:auto;
+}
+.marca .texto-marca{
+  display:flex; flex-direction:column; line-height:1.2;
+}
+.marca .texto-marca strong{
+  font-family:var(--fuente-titulo);
+  font-size:1.02rem;
+  color:var(--azul-profundo);
+}
+.marca .texto-marca span{
+  font-size:.72rem;
+  letter-spacing:.06em;
+  text-transform:uppercase;
+  color:var(--tinta-suave);
+}
+.nav-enlaces{
+  display:flex; gap:8px; align-items:center;
+}
+.nav-enlaces a{
+  padding:10px 16px;
+  border-radius:999px;
+  font-weight:600;
+  font-size:.95rem;
+  color:var(--azul-profundo);
+  transition:background .15s ease;
+}
+.nav-enlaces a:hover, .nav-enlaces a[aria-current="page"]{
+  background:var(--azul-claro);
+}
+.boton-menu{
+  display:none;
+  background:none; border:none; cursor:pointer;
+  padding:8px;
+}
+.boton-menu span, .boton-menu::before, .boton-menu::after{
+  display:block; width:24px; height:2.5px; background:var(--azul-profundo);
+  margin:5px 0; content:"";
+}
+
+/* ---------- Botones ---------- */
+.boton{
+  display:inline-flex; align-items:center; justify-content:center;
+  gap:.5em;
+  padding:14px 28px;
+  border-radius:999px;
+  font-weight:700;
+  font-size:.95rem;
+  border:2px solid transparent;
+  cursor:pointer;
+  transition:transform .15s ease, box-shadow .15s ease;
+}
+.boton:hover{ transform:translateY(-2px); }
+.boton-primario{
+  background:var(--amarillo);
+  color:var(--tinta);
+  box-shadow:0 6px 18px rgba(242,191,31,0.35);
+}
+.boton-secundario{
+  background:transparent;
+  border-color:rgba(255,255,255,0.55);
+  color:var(--blanco);
+}
+.boton-secundario:hover{ background:rgba(255,255,255,0.12); }
+.boton-oscuro{
+  background:var(--azul-profundo);
+  color:var(--blanco);
+}
+
+/* ---------- Héroe ---------- */
+.heroe{
+  position:relative;
+  background:radial-gradient(circle at 82% 20%, var(--azul-medio), var(--azul-profundo) 60%);
+  color:var(--blanco);
+  overflow:hidden;
+  padding:76px 0 90px;
+}
+.heroe::before{
+  /* anillo del sello, agrandado como marca de agua */
+  content:"";
+  position:absolute;
+  right:-160px; top:-160px;
+  width:520px; height:520px;
+  border-radius:50%;
+  border:26px solid transparent;
+  border-top-color:var(--amarillo);
+  border-right-color:var(--amarillo);
+  border-bottom-color:var(--rojo);
+  border-left-color:var(--rojo);
+  opacity:.28;
+  transform:rotate(18deg);
+}
+.heroe-grid{
+  position:relative; z-index:1;
+  display:grid;
+  grid-template-columns:1.15fr .85fr;
+  gap:48px;
+  align-items:center;
+}
+.heroe .eyebrow{ color:var(--amarillo); }
+.heroe .eyebrow::before{ background:var(--rojo); }
+.heroe h1{ color:var(--blanco); }
+.heroe p.lede{
+  color:rgba(255,255,255,0.86);
+  font-size:1.1rem;
+  max-width:52ch;
+}
+.heroe-acciones{
+  display:flex; gap:14px; flex-wrap:wrap;
+  margin-top:28px;
+}
+.sello-marco{
+  position:relative;
+  width:min(320px, 100%);
+  margin:0 auto;
+  aspect-ratio:1;
+  border-radius:50%;
+  background:var(--blanco);
+  display:flex; align-items:center; justify-content:center;
+  padding:28px;
+  box-shadow:0 20px 50px rgba(0,0,0,0.3);
+}
+.sello-marco img{ width:100%; }
+
+/* ---------- Secciones ---------- */
+.seccion{ padding:76px 0; }
+.seccion-alt{ background:var(--crema); }
+.seccion-cabecera{
+  max-width:640px;
+  margin:0 0 40px;
+}
+
+/* Tarjetas de accesos rápidos (home) */
+.rejilla-accesos{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:24px;
+}
+.tarjeta-acceso{
+  background:var(--blanco);
+  border:1px solid var(--borde);
+  border-radius:var(--radio);
+  padding:28px;
+  box-shadow:var(--sombra);
+  position:relative;
+  overflow:hidden;
+}
+.tarjeta-acceso::after{
+  content:"";
+  position:absolute; left:0; top:0; bottom:0;
+  width:5px;
+  background:var(--amarillo);
+}
+.tarjeta-acceso:nth-child(2)::after{ background:var(--rojo); }
+.tarjeta-acceso:nth-child(3)::after{ background:var(--azul-medio); }
+.tarjeta-acceso h3{ margin-bottom:.35em; }
+.tarjeta-acceso a.enlace-tarjeta{
+  display:inline-block; margin-top:10px;
+  font-weight:700; color:var(--azul-profundo);
+  border-bottom:2px solid var(--amarillo);
+}
+
+/* Franja de identidad / valores */
+.valores{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:20px;
+}
+.valor{
+  text-align:center;
+  padding:20px 10px;
+}
+.valor .num{
+  font-family:var(--fuente-titulo);
+  font-size:2rem;
+  color:var(--azul-medio);
+  display:block;
+}
+.valor span.etiqueta{
+  font-size:.85rem; color:var(--tinta-suave);
+}
+
+/* ---------- Página Nosotros: Historia ---------- */
+.historia-layout{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:56px;
+  align-items:center;
+}
+.marco-anillo{
+  position:relative;
+  border-radius:50%;
+  aspect-ratio:1;
+  padding:18px;
+  background:conic-gradient(from 90deg, var(--amarillo) 0 50%, var(--rojo) 50% 100%);
+}
+.marco-anillo .interior{
+  background:var(--blanco);
+  border-radius:50%;
+  width:100%; height:100%;
+  display:flex; align-items:center; justify-content:center;
+  overflow:hidden;
+}
+.marco-anillo .interior img{
+  width:78%;
+}
+
+/* ---------- Jornadas ---------- */
+.rejilla-jornadas{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:24px;
+}
+.tarjeta-jornada{
+  background:var(--blanco);
+  border:1px solid var(--borde);
+  border-radius:var(--radio);
+  padding:28px;
+  box-shadow:var(--sombra);
+  text-align:center;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+}
+.tarjeta-jornada .icono-jornada{
+  width:56px; height:56px;
+  margin:0 auto 16px;
+  border-radius:50%;
+  display:flex; align-items:center; justify-content:center;
+  font-size:1.5rem;
+  background:var(--azul-claro);
+}
+.tarjeta-jornada.matutina .icono-jornada{ background:#FDF3D6; }
+.tarjeta-jornada.vespertina .icono-jornada{ background:#FBE1DF; }
+.tarjeta-jornada.nocturna .icono-jornada{ background:var(--azul-claro); }
+.tarjeta-jornada h3{ margin-bottom:4px; }
+.tarjeta-jornada .horario{
+  display:block;
+  font-family:var(--fuente-titulo);
+  font-size:1.3rem;
+  color:var(--azul-profundo);
+  margin:14px 0 8px;
+}
+.tarjeta-jornada .horario.pendiente{
+  font-family:var(--fuente-texto);
+  font-size:.95rem;
+  font-style:italic;
+  color:var(--tinta-suave);
+}
+.tarjeta-jornada .niveles{
+  font-size:.85rem;
+  color:var(--tinta-suave);
+}
+.tarjeta-jornada .lista-programas{
+  list-style:none;
+  padding:0; margin:10px 0 0;
+  text-align:left;
+  font-size:.85rem;
+  color:var(--tinta-suave);
+}
+.tarjeta-jornada .lista-programas li{
+  padding:8px 0;
+  border-top:1px solid var(--borde);
+}
+.tarjeta-jornada .lista-programas li:first-child{ border-top:none; }
+.tarjeta-jornada .lista-programas strong{
+  display:block;
+  color:var(--tinta);
+  font-size:.9rem;
+}
+
+/* Misión / Visión */
+.par-mv{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:28px;
+}
+.tarjeta-mv{
+  border-radius:var(--radio);
+  padding:36px;
+  position:relative;
+}
+.tarjeta-mv.mision{ background:var(--azul-profundo); color:var(--blanco); }
+.tarjeta-mv.vision{ background:var(--azul-claro); color:var(--tinta); }
+.tarjeta-mv .eyebrow{ margin-bottom:.6em; }
+.tarjeta-mv.mision .eyebrow{ color:var(--amarillo); }
+.tarjeta-mv.mision .eyebrow::before{ background:var(--rojo); }
+.tarjeta-mv.mision h2{ color:var(--blanco); }
+.tarjeta-mv.mision p{ color:rgba(255,255,255,0.86); }
+.tarjeta-mv .marca-circulo{
+  position:absolute; top:28px; right:28px;
+  width:42px; height:42px;
+  border-radius:50%;
+  border:3px solid var(--amarillo);
+  border-right-color:var(--rojo);
+  border-bottom-color:var(--rojo);
+}
+
+/* ---------- Contacto ---------- */
+.contacto-layout{
+  display:grid;
+  grid-template-columns:.9fr 1.1fr;
+  gap:40px;
+  align-items:start;
+}
+.ficha-contacto{
+  background:var(--blanco);
+  border:1px solid var(--borde);
+  border-radius:var(--radio);
+  padding:32px;
+  box-shadow:var(--sombra);
+}
+.linea-dato{
+  display:flex; gap:14px;
+  padding:16px 0;
+  border-bottom:1px solid var(--borde);
+}
+.linea-dato:last-child{ border-bottom:none; }
+.linea-dato .icono{
+  width:38px; height:38px; border-radius:50%;
+  background:var(--azul-claro);
+  display:flex; align-items:center; justify-content:center;
+  flex-shrink:0;
+  color:var(--azul-profundo);
+  font-weight:700;
+}
+.linea-dato strong{ display:block; color:var(--tinta); }
+.linea-dato a{
+  color:var(--azul-medio);
+  font-weight:600;
+  border-bottom:1px solid transparent;
+}
+.linea-dato a:hover{ border-bottom-color:var(--azul-medio); }
+.linea-dato .pendiente{
+  color:var(--tinta-suave); font-style:italic; font-size:.92rem;
+}
+.mapa-envoltorio{
+  border-radius:var(--radio);
+  overflow:hidden;
+  border:1px solid var(--borde);
+  box-shadow:var(--sombra);
+}
+.mapa-envoltorio iframe{
+  width:100%; height:100%; min-height:420px; border:0;
+}
+
+/* ---------- Pie de página ---------- */
+footer.pie{
+  background:var(--azul-profundo);
+  color:rgba(255,255,255,0.82);
+  padding:52px 0 26px;
+}
+.pie-grid{
+  display:grid;
+  grid-template-columns:1.3fr 1fr 1fr;
+  gap:32px;
+  margin-bottom:32px;
+}
+.pie h4{
+  color:var(--blanco);
+  font-family:var(--fuente-titulo);
+  font-size:1rem;
+  margin-bottom:14px;
+}
+.pie a{ color:rgba(255,255,255,0.78); }
+.pie a:hover{ color:var(--amarillo); }
+.pie-marca{
+  display:flex; gap:14px; align-items:center; margin-bottom:14px;
+}
+.pie-marca img{ height:44px; background:var(--blanco); border-radius:50%; padding:4px; }
+.pie-base{
+  border-top:1px solid rgba(255,255,255,0.15);
+  padding-top:20px;
+  font-size:.82rem;
+  text-align:center;
+  color:rgba(255,255,255,0.6);
+}
+
+/* ---------- Calendario escolar ---------- */
+.rejilla-trimestres{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:24px;
+}
+.tarjeta-trimestre{
+  background:var(--blanco);
+  border:1px solid var(--borde);
+  border-radius:var(--radio);
+  padding:28px;
+  box-shadow:var(--sombra);
+}
+.tarjeta-trimestre .dias-laborados{
+  display:inline-flex;
+  align-items:baseline;
+  gap:6px;
+  background:var(--azul-claro);
+  color:var(--azul-profundo);
+  font-weight:700;
+  padding:6px 14px;
+  border-radius:999px;
+  font-size:.85rem;
+  margin-bottom:16px;
+}
+.tarjeta-trimestre .dias-laborados strong{
+  font-family:var(--fuente-titulo);
+  font-size:1.1rem;
+}
+.tarjeta-trimestre h4{
+  font-size:.78rem;
+  text-transform:uppercase;
+  letter-spacing:.08em;
+  color:var(--tinta-suave);
+  margin:18px 0 8px;
+}
+.tarjeta-trimestre h4:first-of-type{ margin-top:0; }
+.lista-fechas{
+  list-style:none;
+  padding:0; margin:0;
+}
+.lista-fechas li{
+  padding:8px 0;
+  border-top:1px solid var(--borde);
+  font-size:.92rem;
+  display:flex;
+  gap:8px;
+}
+.lista-fechas li:first-child{ border-top:none; }
+.lista-fechas .fecha{
+  color:var(--azul-medio);
+  font-weight:700;
+  flex-shrink:0;
+  min-width:9em;
+}
+
+.tarjeta-vacaciones{
+  background:var(--azul-profundo);
+  color:var(--blanco);
+  border-radius:var(--radio);
+  padding:32px;
+  text-align:center;
+}
+.tarjeta-vacaciones h3{ color:var(--blanco); }
+.tarjeta-vacaciones .rango{
+  font-family:var(--fuente-titulo);
+  font-size:1.5rem;
+  color:var(--amarillo);
+  display:block;
+  margin:10px 0;
+}
+
+.tabla-supletorios{
+  width:100%;
+  border-collapse:collapse;
+  background:var(--blanco);
+  border:1px solid var(--borde);
+  border-radius:var(--radio);
+  overflow:hidden;
+}
+.tabla-supletorios th, .tabla-supletorios td{
+  padding:14px 18px;
+  text-align:left;
+  border-bottom:1px solid var(--borde);
+  font-size:.92rem;
+}
+.tabla-supletorios th{
+  background:var(--azul-claro);
+  color:var(--azul-profundo);
+  font-family:var(--fuente-titulo);
+  font-weight:600;
+}
+.tabla-supletorios tr:last-child td{ border-bottom:none; }
+
+/* ---------- Responsivo ---------- */
+@media (max-width:860px){
+  .heroe-grid, .historia-layout, .par-mv, .contacto-layout, .pie-grid{
+    grid-template-columns:1fr;
+  }
+  .heroe-grid > *:first-child{ order:2; }
+  .heroe-grid > *:last-child{ order:1; }
+  .rejilla-accesos{ grid-template-columns:1fr; }
+  .rejilla-trimestres{ grid-template-columns:1fr; }
+  .tabla-supletorios{ font-size:.85rem; }
+  .lista-fechas li{ flex-direction:column; gap:2px; }
+  .valores{ grid-template-columns:repeat(2,1fr); }
+  .nav-enlaces{
+    position:absolute; top:100%; left:0; right:0;
+    background:var(--blanco);
+    flex-direction:column;
+    border-bottom:1px solid var(--borde);
+    padding:10px 24px 18px;
+    display:none;
+  }
+  .nav-enlaces.abierto{ display:flex; }
+  .boton-menu{ display:block; }
+  .seccion{ padding:52px 0; }
+}

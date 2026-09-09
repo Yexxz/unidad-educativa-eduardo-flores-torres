@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unidad Educativa Fiscal Prof. Eduardo Flores Torres</title>
+<meta name="description" content="Sitio informativo oficial de la Unidad Educativa Fiscal Prof. Eduardo Flores Torres — Guayaquil, Ecuador.">
+<link rel="icon" href="img/logo.png">
+<link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+<div class="franja"></div>
+
+<header class="encabezado">
+  <nav class="nav">
+    <a href="index.html" class="marca">
+      <img src="img/logo.png" alt="Escudo de la Unidad Educativa Fiscal Prof. Eduardo Flores Torres">
+      <span class="texto-marca">
+        <strong>Eduardo Flores Torres</strong>
+        <span>Unidad Educativa Fiscal</span>
+      </span>
+    </a>
+    <button class="boton-menu" aria-label="Abrir menú" aria-expanded="false"></button>
+    <div class="nav-enlaces">
+      <a href="index.html" aria-current="page">Inicio</a>
+      <a href="nosotros.html">Jornadas</a>
+      <a href="calendario.html">Calendario</a>
+      <a href="contacto.html">Contacto</a>
+    </div>
+  </nav>
+</header>
+<main>
+  <section class="heroe">
+    <div class="contenedor heroe-grid">
+      <div>
+        <span class="eyebrow">Educación pública · Guayaquil</span>
+        <h1>Formamos personas, no solo estudiantes.</h1>
+        <p class="lede">Bienvenidos al sitio informativo de la Unidad Educativa Fiscal Prof. Eduardo Flores Torres. Aquí encontrarás toda informacion sobre nosotros y cómo llegar a nuestras instalaciones.</p>
+        <div class="heroe-acciones">
+          <a href="nosotros.html" class="boton boton-primario">Conócenos</a>
+          <a href="contacto.html" class="boton boton-secundario">Cómo llegar</a>
+        </div>
+      </div>
+      <div>
+        <div class="sello-marco">
+          <img src="img/logo.png" alt="">
+        </div>
+      </div>
+    </div>
+  </section>
+
+<section class="seccion">  
+  <div class="contenedor">
+      <div class="seccion-cabecera">
+        <span class="eyebrow">aprende con nosotros </span>
+        <h2> </h2>
+      </div>
+      <div class="rejilla-accesos">
+        <article class="tarjeta-acceso">
+          <h3>Nuestra historia</h3>
+          <p>Conoce los orígenes de nuestro plantel educativo.</p>
+          <a class="enlace-tarjeta" href="nosotros.html#historia">Leer→</a>
+        </article>
+        <article class="tarjeta-acceso">
+          <h3>Jornadas</h3>
+          <p>Ve nuestras jornadas y ve cual se adapta mejor a tu tiempo o al de tus hijos .</p>
+          <a class="enlace-tarjeta" href="nosotros.html#mision-vision">Ver Jornadas →</a>
+        </article>
+        <article class="tarjeta-acceso">
+          <h3>Ubicación y contacto</h3>
+          <p>Encuentra cómo llegar a la institución y los medios para comunicarte con nosotros.</p>
+          <a class="enlace-tarjeta" href="contacto.html">Ver ubicación →</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="seccion seccion-alt">
+    <div class="contenedor">
+      <div class="valores">
+        <div class="valor">
+          <span class="num">Inicial</span>
+          <span class="etiqueta">Nivel Educativo</span>
+        </div>
+        <div class="valor">
+          <span class="num">EGB</span>
+          <span class="etiqueta">Educación General Básica</span>
+        </div>
+        <div class="valor">
+          <span class="num">Tecnico</span>
+          <span class="etiqueta">Bachillerato</span>
+        </div>
+        <div class="valor">
+          <span class="num">Fiscal</span>
+          <span class="etiqueta">Educación Pública Gratuita</span>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="pie">
+  <div class="contenedor">
+    <div class="pie-grid">
+      <div>
+        <div class="pie-marca">
+          <img src="img/logo.png" alt="">
+          <strong style="color:#fff;">U.E.F. Eduardo Flores Torres</strong>
+        </div>
+        <p style="color:rgba(255,255,255,0.75); max-width:36ch;">Unidad Educativa Fiscal — Guayaquil, Ecuador.</p>
+      </div>
+      <div>
+        <h4>Navegación</h4>
+        <p><a href="index.html">Inicio</a></p>
+        <p><a href="nosotros.html">Jornadas</a></p>
+        <a href="calendario.html">Calendario</a>
+        <p><a href="contacto.html">Contacto</a></p>
+      </div>
+      <div>
+        <h4>Ubicación</h4>
+        <p>Sector Cristo del Consuelo, Guayaquil, Ecuador.</p>
+      </div>
+    </div>
+    <div class="pie-base">© <span id="anio"></span> Unidad Educativa Fiscal Prof. Eduardo Flores Torres. Todos los derechos reservados.</div>
+  </div>
+</footer>
+
+<script>document.getElementById('anio').textContent = new Date().getFullYear();</script>
+<script src="js/principal.js"></script>
+</body>
+</html>
